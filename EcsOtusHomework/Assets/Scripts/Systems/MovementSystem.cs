@@ -32,7 +32,7 @@ namespace Client.Systems
                 MoveSpeed moveSpeed = moveSpeedPool.Get(entity);
                 
                 ref Position position = ref positionPool.Get(entity);
-                position.Value += moveDirection.Value * moveSpeed.Value * deltaTime;
+                position.Value += moveDirection.Value * (moveSpeed.Value * deltaTime);
             }
         }
     }

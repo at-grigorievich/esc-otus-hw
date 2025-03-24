@@ -1,4 +1,5 @@
 ﻿using System;
+using Leopotam.EcsLite.Entities;
 using UnityEngine;
 
 namespace Client.Components
@@ -25,5 +26,37 @@ namespace Client.Components
     public struct MoveSpeed
     {
         public float Value;
+    }
+
+    [Serializable]
+    public struct TransformView
+    {
+        public Transform Value;
+    }
+
+    // Marker
+    [Serializable]
+    public struct FireRequest
+    {
+    }
+
+    
+    // Marker
+    [Serializable]
+    public struct SpawnRequest
+    {
+    }
+
+    [Serializable]
+    public struct Prefab
+    {
+        public Entity Value;
+    }
+
+    [Serializable]
+    public struct BulletWeapon
+    {
+        public Transform FirePoint;
+        public Entity BulletPrefab;
     }
 }
