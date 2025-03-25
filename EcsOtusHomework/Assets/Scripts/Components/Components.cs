@@ -2,6 +2,7 @@
 using Client.Data;
 using Leopotam.EcsLite.Entities;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Client.Components
 {
@@ -11,14 +12,22 @@ namespace Client.Components
         public TeamType Value;
     }
     
-    
-    
-    
-    
     [Serializable]
     public struct Position
     {
         public Vector3 Value;
+    }
+
+    [Serializable]
+    public struct Target
+    {
+        public Transform Value;
+    }
+
+    [Serializable]
+    public struct RigidbodyView
+    {
+        public Rigidbody Value;
     }
 
     [Serializable]
