@@ -12,7 +12,7 @@ namespace Client.Views
         {
             entity.AddData(new Position { Value = transform.position});
             entity.AddData(new Rotation { Value = transform.rotation});
-            entity.AddData(new MoveDirection { Value = Vector3.forward});
+            entity.AddData(new Direction { Value = Vector3.forward});
             entity.AddData(new MoveSpeed { Value = moveSpeed});
             entity.AddData(new TransformView { Value = transform});
         }

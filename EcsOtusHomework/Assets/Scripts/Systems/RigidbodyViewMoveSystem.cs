@@ -7,14 +7,14 @@ namespace Client.Systems
 {
     public class RigidbodyViewMoveSystem: IEcsRunSystem
     {
-        private readonly EcsFilterInject<Inc<RigidbodyView, MoveDirection, MoveSpeed>> _filter;
+        private readonly EcsFilterInject<Inc<RigidbodyView, Direction, MoveSpeed>> _filter;
 
         public void Run(IEcsSystems systems)
         {
             float fixedDeltaTime = Time.fixedDeltaTime;
             
             EcsPool<RigidbodyView> rbPool = _filter.Pools.Inc1;
-            EcsPool<MoveDirection> moveDirectionPool = _filter.Pools.Inc2;
+            EcsPool<Direction> moveDirectionPool = _filter.Pools.Inc2;
             EcsPool<MoveSpeed> moveSpeedPool = _filter.Pools.Inc3;
 
             foreach (var i in _filter.Value)

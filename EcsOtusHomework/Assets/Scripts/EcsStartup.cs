@@ -11,6 +11,7 @@ namespace Client {
         public SceneData sceneData;
         
         private EcsWorld _world;
+        private EcsWorld _events;
 
         private IEcsSystems _systems;
         private IEcsSystems _fixedSystems;
@@ -22,11 +23,13 @@ namespace Client {
             _entityManager = new EntityManager();
             
             _world = new EcsWorld();
+            _events = new EcsWorld();
             
             _systems = new EcsSystems (_world);
             _fixedSystems = new EcsSystems (_world);
             
-            _systems.AddWorld(new EcsWorld(), EcsWorlds.EVENTS);
+            _systems.AddWorld(_events, EcsWorlds.EVENTS);
+            _fixedSystems.AddWorld(_events, EcsWorlds.EVENTS);
             
             _systems
                 // register your systems here, for example:
@@ -37,8 +40,10 @@ namespace Client {
                 //.Add(new FireRequestSystem())
                 //.Add(new SpawnRequestSystem())
                 .Add(new SpawnUnitRequestSystem())
-                .Add(new SpawnUnitSystem())
+                .Add(new ShootBulletRequestSystem())
+                .Add(new SpawnSystem())
                 .Add(new TargetMovementSystem())
+                .Add(new ReloadFireDelaySystem())
                 //.Add(new TransformViewSystem())
                 // register additional worlds here, for example:
                 // .AddWorld (new EcsWorld (), "events")
@@ -50,6 +55,7 @@ namespace Client {
 #endif
 
             _fixedSystems
+                .Add(new DetectEnemySystem())
                 .Add(new RigidbodyViewMoveSystem());
         }
         

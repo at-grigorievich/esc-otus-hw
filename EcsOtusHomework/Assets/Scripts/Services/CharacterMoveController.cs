@@ -10,9 +10,9 @@ namespace Client.Services
 
         private void Update()
         {
-            Vector3 direction = MoveInput.GetDirection();
-            ref MoveDirection moveDirection = ref character.GetData<MoveDirection>();
-            moveDirection.Value = direction;
+            //Vector3 direction = MoveInput.GetDirection();
+            //ref Direction direction = ref character.GetData<Direction>();
+            //direction.Value = direction;
         }
     }
 }

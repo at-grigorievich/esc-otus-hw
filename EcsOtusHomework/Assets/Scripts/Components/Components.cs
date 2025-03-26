@@ -2,7 +2,6 @@
 using Client.Data;
 using Leopotam.EcsLite.Entities;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Client.Components
 {
@@ -11,11 +10,42 @@ namespace Client.Components
     {
         public TeamType Value;
     }
+
+    [Serializable]
+    public struct DetectedEnemyPosition
+    {
+        public bool Value;
+    }
+    
+    [Serializable]
+    public struct AttackRange
+    {
+        public float Value;
+    }
     
     [Serializable]
     public struct Position
     {
         public Vector3 Value;
+    }
+    
+    [Serializable]
+    public struct Rotation
+    {
+        public Quaternion Value;
+    }
+
+    [Serializable]
+    public struct Health
+    {
+        public float Value;
+    }
+
+    [Serializable]
+    public struct FireDelay
+    {
+        public float Limit;
+        public float Value;
     }
 
     [Serializable]
@@ -31,13 +61,7 @@ namespace Client.Components
     }
 
     [Serializable]
-    public struct Rotation
-    {
-        public Quaternion Value;
-    }
-
-    [Serializable]
-    public struct MoveDirection
+    public struct Direction
     {
         public Vector3 Value;
     }
@@ -53,20 +77,7 @@ namespace Client.Components
     {
         public Transform Value;
     }
-
-    // Marker
-    [Serializable]
-    public struct FireRequest
-    {
-    }
-
     
-    // Marker
-    [Serializable]
-    public struct SpawnRequest
-    {
-    }
-
     [Serializable]
     public struct Prefab
     {

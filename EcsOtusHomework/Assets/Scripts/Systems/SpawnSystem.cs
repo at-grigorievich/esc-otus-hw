@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Client.Systems
 {
-    public class SpawnUnitSystem: IEcsRunSystem
+    public class SpawnSystem: IEcsRunSystem
     {
         private readonly EcsWorldInject _eventWorld = EcsWorlds.EVENTS;
         private readonly EcsFilterInject<Inc<SpawnRequest, Position, Rotation, Prefab, Team>> _filter = EcsWorlds.EVENTS;

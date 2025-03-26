@@ -6,12 +6,12 @@ namespace Client.Systems
 {
     public class TargetMovementSystem: IEcsRunSystem
     {
-        private readonly EcsFilterInject<Inc<RigidbodyView, MoveDirection, Target>> _filter;
+        private readonly EcsFilterInject<Inc<RigidbodyView, Direction, Target>> _filter;
         
         public void Run(IEcsSystems systems)
         {
             EcsPool<RigidbodyView> rbPool = _filter.Pools.Inc1;
-            EcsPool<MoveDirection> moveDirectionPool = _filter.Pools.Inc2;
+            EcsPool<Direction> moveDirectionPool = _filter.Pools.Inc2;
             EcsPool<Target> targetPool = _filter.Pools.Inc3;
             
             foreach (var i in _filter.Value)
@@ -19,9 +19,9 @@ namespace Client.Systems
                 RigidbodyView rb = rbPool.Get(i);
                 Target target = targetPool.Get(i);
                 
-                ref MoveDirection moveDirection = ref moveDirectionPool.Get(i);
+                ref Direction direction = ref moveDirectionPool.Get(i);
                 
-                moveDirection.Value = (target.Value.position - rb.Value.position).normalized;
+                direction.Value = (target.Value.position - rb.Value.position).normalized;
             }
         }
     }
