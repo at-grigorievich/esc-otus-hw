@@ -9,7 +9,7 @@ namespace Client.Systems
 {
     public class DetectEnemySystem: IEcsRunSystem
     {
-        private readonly int _layerMask = ~LayerMask.GetMask("Bullet");
+        private readonly int _layerMask = ~LayerMask.GetMask("bullet");
         private readonly EcsFilterInject<Inc<DetectedEnemyPosition, RigidbodyView, Team, AttackRange>> _filter;
         
         public void Run(IEcsSystems systems)

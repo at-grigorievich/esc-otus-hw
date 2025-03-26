@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace Client.Systems
 {
-    public class RigidbodyForceApplySystem: IEcsRunSystem
+    public class RigidbodyForceApplySystem: IEcsPostRunSystem
     {
         private readonly EcsFilterInject<Inc<RigidbodyView,ForceSensitive>> _filter;
 
 
-        public void Run(IEcsSystems systems)
+        public void PostRun(IEcsSystems systems)
         {
             EcsPool<RigidbodyView> viewPool = _filter.Pools.Inc1;
             EcsPool<ForceSensitive> forcePool = _filter.Pools.Inc2;

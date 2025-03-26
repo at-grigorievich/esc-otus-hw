@@ -42,6 +42,12 @@ namespace Client.Components
     }
 
     [Serializable]
+    public struct Attack
+    {
+        public float Value;
+    }
+    
+    [Serializable]
     public struct Damage
     {
         public float Value;

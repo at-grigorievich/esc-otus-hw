@@ -27,7 +27,7 @@ namespace Client.Views
 
         protected override void Dispose(Entity entity)
         {
-
+        
         }
     }
 }

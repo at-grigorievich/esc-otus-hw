@@ -12,10 +12,11 @@ namespace Client.Views
         
         protected override void Install(Entity entity)
         {
+            entity.AddData(new DestroyOnCollision());
             entity.AddData(new Position { Value = transform.position });
             entity.AddData(new Rotation { Value = transform.rotation });
             entity.AddData(new RigidbodyView { Value = rb });
-            entity.AddData(new Damage { Value = damage });
+            entity.AddData(new Attack() { Value = damage });
             entity.AddData(new ForceSensitive
             {
                 ForceAmplitude = forceAmplitude,
@@ -25,7 +26,6 @@ namespace Client.Views
 
         protected override void Dispose(Entity entity)
         {
-
         }
     }
 }

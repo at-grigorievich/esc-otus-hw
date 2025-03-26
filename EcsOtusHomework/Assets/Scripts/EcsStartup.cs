@@ -1,5 +1,6 @@
 using Client.Data;
 using Client.Systems;
+using LeoEcsPhysics;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using Leopotam.EcsLite.Entities;
@@ -31,13 +32,15 @@ namespace Client {
             _systems.AddWorld(_events, EcsWorlds.EVENTS);
             _fixedSystems.AddWorld(_events, EcsWorlds.EVENTS);
             
+            EcsPhysicsEvents.ecsWorld = _events;
+            
             _systems
                 // register your systems here, for example:
                 .Add(new SpawnUnitRequestSystem())
-                .Add(new ShootBulletRequestSystem())
                 .Add(new SpawnSystem())
                 .Add(new TargetMovementSystem())
                 .Add(new ReloadFireDelaySystem())
+                .Add(new DestroySystem())
 #if UNITY_EDITOR
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem(EcsWorlds.EVENTS));
@@ -45,17 +48,21 @@ namespace Client {
 
             _fixedSystems
                 .Add(new DetectEnemySystem())
-                .Add(new RigidbodyViewMoveSystem())
-                .Add(new RigidbodyForceApplySystem());
+                .Add(new ShootBulletRequestSystem())
+                .Add(new RigidbodyForceApplySystem())
+                .Add(new BulletCollisionSystem())
+                .Add(new RigidbodyViewMoveSystem());
         }
         
         private void Start ()
         {
             _entityManager.Initialize(_world);
+            
             _systems
                 .Inject(_entityManager)
                 .Inject(sceneData);
             _fixedSystems.Inject();
+            
             _systems.Init ();
             _fixedSystems.Init();
         }
@@ -80,6 +87,11 @@ namespace Client {
                 // need to save it here if you need.
                 _systems.Destroy ();
                 _systems = null;
+                
+                _fixedSystems.Destroy();
+                _systems = null;
+                
+                EcsPhysicsEvents.ecsWorld = null;
             }
             
             // cleanup custom worlds here.
@@ -88,6 +100,12 @@ namespace Client {
             if (_world != null) {
                 _world.Destroy ();
                 _world = null;
+            }
+
+            if (_events != null)
+            {
+                _events.Destroy();
+                _events = null;
             }
         }
     }

@@ -164,11 +164,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   health: 10
-  attackRange: 10
+  attackRange: 25
   rb: {fileID: 3473714573027867431}
   bulletSpawnPoint: {fileID: 2252355268760838796}
   bulletPrefab: {fileID: -6140886038896581239, guid: 2cd0ffcf9ab87ff428dcd5de2e7b1226, type: 3}
-  reloadDelay: 1
+  reloadDelay: 5
 --- !u!1 &4451910231547018961
 GameObject:
   m_ObjectHideFlags: 0

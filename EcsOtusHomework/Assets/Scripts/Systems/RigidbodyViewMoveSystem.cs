@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace Client.Systems
 {
-    public class RigidbodyViewMoveSystem: IEcsRunSystem
+    public class RigidbodyViewMoveSystem: IEcsPostRunSystem
     {
         private readonly EcsFilterInject<Inc<RigidbodyView, Direction, MoveSpeed>> _filter;
         private readonly EcsPoolInject<DetectedEnemyPosition> _detectedEnemiesPool;
         
-        public void Run(IEcsSystems systems)
+        public void PostRun(IEcsSystems systems)
         {
             float fixedDeltaTime = Time.fixedDeltaTime;
             
