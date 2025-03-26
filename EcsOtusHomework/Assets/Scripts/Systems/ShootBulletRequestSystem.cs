@@ -26,7 +26,7 @@ namespace Client.Systems
             foreach (var i in _filter.Value)
             {
                 ref FireDelay fireDelay = ref fireDelayPool.Get(i);
-                ref DetectedEnemyPosition detectedEnemy = ref detectedEnemiesPool.Get(i);
+                DetectedEnemyPosition detectedEnemy = detectedEnemiesPool.Get(i);
                 
                 if(fireDelay.Value < fireDelay.Limit) continue;
                 if(detectedEnemy.Value == false) continue;

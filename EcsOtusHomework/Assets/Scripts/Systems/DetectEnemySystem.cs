@@ -9,6 +9,7 @@ namespace Client.Systems
 {
     public class DetectEnemySystem: IEcsRunSystem
     {
+        private readonly int _layerMask = ~LayerMask.GetMask("Bullet");
         private readonly EcsFilterInject<Inc<DetectedEnemyPosition, RigidbodyView, Team, AttackRange>> _filter;
         
         public void Run(IEcsSystems systems)
@@ -32,7 +33,7 @@ namespace Client.Systems
 
                 Ray ray = new Ray(pos, forward);
 
-                if (Physics.Raycast(ray, out hit, attackRange))
+                if (Physics.Raycast(ray, out hit, attackRange, _layerMask))
                 {
                     ref DetectedEnemyPosition detectedEnemyPosition = ref detectEnemyPool.Get(i);
 
