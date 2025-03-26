@@ -41,7 +41,6 @@ namespace Client.Systems
                 _prefabPool.Value.Add(spawnBulletEvent) = new Prefab { Value = weapon.BulletPrefab };
                 _teamPool.Value.Add(spawnBulletEvent) = new Team { Value = teamType };
                 
-                detectedEnemy.Value = false;
                 fireDelay.Value = 0f;
             }
         }

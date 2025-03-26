@@ -33,30 +33,20 @@ namespace Client {
             
             _systems
                 // register your systems here, for example:
-                // .Add (new TestSystem1 ())
-                // .Add (new TestSystem2 ())
-                //.Add(new ExampleSystem())
-                //.Add(new MovementSystem())
-                //.Add(new FireRequestSystem())
-                //.Add(new SpawnRequestSystem())
                 .Add(new SpawnUnitRequestSystem())
                 .Add(new ShootBulletRequestSystem())
                 .Add(new SpawnSystem())
                 .Add(new TargetMovementSystem())
                 .Add(new ReloadFireDelaySystem())
-                //.Add(new TransformViewSystem())
-                // register additional worlds here, for example:
-                // .AddWorld (new EcsWorld (), "events")
 #if UNITY_EDITOR
-                // add debug systems for custom worlds here, for example:
-                // .Add (new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem ("events"))
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem(EcsWorlds.EVENTS));
 #endif
 
             _fixedSystems
                 .Add(new DetectEnemySystem())
-                .Add(new RigidbodyViewMoveSystem());
+                .Add(new RigidbodyViewMoveSystem())
+                .Add(new RigidbodyForceApplySystem());
         }
         
         private void Start ()

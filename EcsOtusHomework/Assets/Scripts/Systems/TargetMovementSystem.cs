@@ -7,6 +7,7 @@ namespace Client.Systems
     public class TargetMovementSystem: IEcsRunSystem
     {
         private readonly EcsFilterInject<Inc<RigidbodyView, Direction, Target>> _filter;
+        private readonly EcsPoolInject<DetectedEnemyPosition> _detectedEnemiesPool;
         
         public void Run(IEcsSystems systems)
         {
@@ -20,7 +21,7 @@ namespace Client.Systems
                 Target target = targetPool.Get(i);
                 
                 ref Direction direction = ref moveDirectionPool.Get(i);
-                
+                        
                 direction.Value = (target.Value.position - rb.Value.position).normalized;
             }
         }

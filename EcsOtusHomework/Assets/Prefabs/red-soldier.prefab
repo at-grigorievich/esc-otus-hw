@@ -164,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   health: 10
-  attackRange: 10
+  attackRange: 25
   rb: {fileID: 3473714573027867431}
   bulletSpawnPoint: {fileID: 2252355268760838796}
   bulletPrefab: {fileID: -6140886038896581239, guid: 5a3d42c7432f15849898474fde063f95, type: 3}
@@ -194,7 +194,7 @@ Transform:
   m_GameObject: {fileID: 4451910231547018961}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.505}
+  m_LocalPosition: {x: 0, y: 0, z: 0.542}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

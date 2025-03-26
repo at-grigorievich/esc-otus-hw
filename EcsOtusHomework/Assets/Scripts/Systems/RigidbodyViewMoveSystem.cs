@@ -8,7 +8,8 @@ namespace Client.Systems
     public class RigidbodyViewMoveSystem: IEcsRunSystem
     {
         private readonly EcsFilterInject<Inc<RigidbodyView, Direction, MoveSpeed>> _filter;
-
+        private readonly EcsPoolInject<DetectedEnemyPosition> _detectedEnemiesPool;
+        
         public void Run(IEcsSystems systems)
         {
             float fixedDeltaTime = Time.fixedDeltaTime;
@@ -19,6 +20,11 @@ namespace Client.Systems
 
             foreach (var i in _filter.Value)
             {
+                if (_detectedEnemiesPool.Value.Has(i) == true)
+                {
+                    if(_detectedEnemiesPool.Value.Get(i).Value == true) continue;   
+                }
+                
                 float speed = moveSpeedPool.Get(i).Value;
                 Vector3 direction = moveDirectionPool.Get(i).Value;
                 Quaternion rotation = Quaternion.LookRotation(direction);

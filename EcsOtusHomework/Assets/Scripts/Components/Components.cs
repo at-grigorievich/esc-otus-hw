@@ -42,10 +42,23 @@ namespace Client.Components
     }
 
     [Serializable]
+    public struct Damage
+    {
+        public float Value;
+    }
+
+    [Serializable]
     public struct FireDelay
     {
         public float Limit;
         public float Value;
+    }
+
+    [Serializable]
+    public struct ForceSensitive
+    {
+        public Vector3 Direction;
+        public float ForceAmplitude;
     }
 
     [Serializable]
