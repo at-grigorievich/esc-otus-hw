@@ -278,7 +278,8 @@ MonoBehaviour:
   blueTeamSpawnPoint: {fileID: 303483943}
   redSoldier: {fileID: -699026123723737972, guid: 86ac597c025f466429c5b6ea5ab6b911, type: 3}
   blueSoldier: {fileID: -4032499815905422956, guid: 4670ef0f18bc2844daa3c7d0a525a465, type: 3}
-  spawnRadius: 0
+  unitsPerTeam: 100
+  spawnRadius: 30
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

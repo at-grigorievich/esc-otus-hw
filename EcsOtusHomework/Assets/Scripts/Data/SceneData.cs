@@ -10,7 +10,8 @@ namespace Client.Data
 
         public Entity redSoldier;
         public Entity blueSoldier;
-        
+
+        public int unitsPerTeam;
         public float spawnRadius;
     }
 }

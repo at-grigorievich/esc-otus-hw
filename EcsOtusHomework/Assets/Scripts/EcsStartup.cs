@@ -40,6 +40,8 @@ namespace Client {
                 .Add(new SpawnSystem())
                 .Add(new TargetMovementSystem())
                 .Add(new ReloadFireDelaySystem())
+                .Add(new GetDamageSystem())
+                .Add(new DeathSystem())
                 .Add(new DestroySystem())
 #if UNITY_EDITOR
                 .Add(new Leopotam.EcsLite.UnityEditor.EcsWorldDebugSystem())

@@ -22,7 +22,6 @@ namespace Client.Views
             entity.AddData(new Direction { Value = Vector2.zero });
             entity.AddData(new MoveSpeed { Value = moveSpeed });
             entity.AddData(new RigidbodyView { Value = rb });
-            entity.AddData(new Health { Value = health });
             entity.AddData(new AttackRange { Value = attackRange });
             entity.AddData(new DetectedEnemyPosition());
             entity.AddData(new FireDelay
@@ -34,6 +33,11 @@ namespace Client.Views
             {
                 FirePoint = bulletSpawnPoint, 
                 BulletPrefab = bulletPrefab
+            });
+            entity.AddData(new Health()
+            {
+                Value = health,
+                MaxValue = health
             });
         }
 

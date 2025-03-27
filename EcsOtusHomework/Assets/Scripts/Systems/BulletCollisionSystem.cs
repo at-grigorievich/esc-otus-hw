@@ -19,29 +19,40 @@ namespace Client.Systems
             {
                 ref var eventData = ref pool.Get(entity);
                 
-                if(eventData.senderGameObject == null) continue;
+                if(eventData.senderGameObject == null || eventData.collider == null) continue;
                 
                 if (eventData.senderGameObject.TryGetComponent(out Entity sourceEntity))
                 {
                     if (sourceEntity.HasData<DestroyOnCollision>())
                     {
-                        sourceEntity.AddData(new DestroyRequest());
+                        if(sourceEntity.HasData<DestroyRequest>() == false)
+                            sourceEntity.AddData(new DestroyRequest());
+                    }
+                    
+                    if (eventData.collider.TryGetComponent(out Entity collisionEntity) == false) continue;
+                    
+                    if(sourceEntity.TryGetData(out Attack attack) == false) continue;
+                    if(sourceEntity.TryGetData(out Team srcTeam) == false) continue;
+                    if(collisionEntity.TryGetData(out Team collisionTeam) == false) continue;
+                    
+                    if(collisionTeam.Value == srcTeam.Value) continue;
+                    
+                    if (collisionEntity.HasData<Damage>())
+                    {
+                        ref Damage dmg = ref collisionEntity.GetData<Damage>();
+                        
+                        dmg.Value += attack.Value;
+                    }
+                    else
+                    {
+                        collisionEntity.AddData(new Damage
+                        {
+                            Value = attack.Value
+                        });
                     }
                 }
                 
                 pool.Del(entity);
-                
-                //if (eventData.collider.TryGetComponent(out Entity hitEntity) == false) continue;
-                
-                //if(sourceEntity.TryGetData(out Attack attack) == false) continue;
-                //if(sourceEntity.TryGetData(out Team team) == false) continue;
-                //if(hitEntity.TryGetData(out Team hittedTeam) == false) continue;
-                
-                //hitEntity.Dispose();
-                
-                //if(team.Value == hittedTeam.Value) continue;
-                
-                //_entityManager.Value.Destroy(sourceEntity.Id);
             }
         }
     }

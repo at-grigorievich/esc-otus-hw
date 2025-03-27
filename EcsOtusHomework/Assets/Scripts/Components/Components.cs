@@ -38,6 +38,7 @@ namespace Client.Components
     [Serializable]
     public struct Health
     {
+        public float MaxValue;
         public float Value;
     }
 

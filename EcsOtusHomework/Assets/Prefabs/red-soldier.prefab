@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  health: 10
+  health: 100
   attackRange: 25
   rb: {fileID: 3473714573027867431}
   bulletSpawnPoint: {fileID: 2252355268760838796}
