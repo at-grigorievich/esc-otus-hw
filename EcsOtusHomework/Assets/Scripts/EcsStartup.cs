@@ -39,6 +39,7 @@ namespace Client {
                 .Add(new SpawnUnitRequestSystem())
                 .Add(new SpawnSystem())
                 .Add(new TargetMovementSystem())
+                .Add(new TargetRotationSystem())
                 .Add(new ReloadFireDelaySystem())
                 .Add(new GetDamageSystem())
                 .Add(new DeathSystem())

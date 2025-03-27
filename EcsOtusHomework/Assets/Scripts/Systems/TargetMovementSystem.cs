@@ -1,6 +1,7 @@
 ﻿using Client.Components;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
+using UnityEngine;
 
 namespace Client.Systems
 {
@@ -21,7 +22,18 @@ namespace Client.Systems
                 Target target = targetPool.Get(i);
                 
                 ref Direction direction = ref moveDirectionPool.Get(i);
-                        
+
+                if (_detectedEnemiesPool.Value.Has(i))
+                {
+                    bool hasDetected = _detectedEnemiesPool.Value.Get(i).Value;
+                    
+                    if (hasDetected)
+                    {
+                        direction.Value = Vector3.zero;
+                        continue;
+                    }
+                }
+                
                 direction.Value = (target.Value.position - rb.Value.position).normalized;
             }
         }

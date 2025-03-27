@@ -15,11 +15,13 @@ namespace Client.Components
     public struct DetectedEnemyPosition
     {
         public bool Value;
+        public Vector3 EnemyPosition;
     }
     
     [Serializable]
     public struct AttackRange
     {
+        public Vector3 Bounds;
         public float Value;
     }
     
