@@ -29,7 +29,7 @@ namespace Client.Views
             {
                 Limit = reloadDelay, 
                 Value = reloadDelay
-            });
+            }); 
             entity.AddData(new BulletWeapon()
             {
                 FirePoint = bulletSpawnPoint, 

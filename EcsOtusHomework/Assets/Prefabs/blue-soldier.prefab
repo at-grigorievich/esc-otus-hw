@@ -119,7 +119,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 10
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -168,7 +168,7 @@ MonoBehaviour:
   rb: {fileID: 3473714573027867431}
   bulletSpawnPoint: {fileID: 2252355268760838796}
   bulletPrefab: {fileID: -6140886038896581239, guid: 2cd0ffcf9ab87ff428dcd5de2e7b1226, type: 3}
-  reloadDelay: 5
+  reloadDelay: 0.5
 --- !u!1 &4451910231547018961
 GameObject:
   m_ObjectHideFlags: 0

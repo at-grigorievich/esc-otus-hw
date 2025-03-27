@@ -32,11 +32,11 @@ namespace Client.Systems
                 float attackRange = attackRangePool.Get(i).Value;
 
                 Ray ray = new Ray(pos, forward);
-
+                
+                ref DetectedEnemyPosition detectedEnemyPosition = ref detectEnemyPool.Get(i);
+                
                 if (Physics.Raycast(ray, out hit, attackRange, _layerMask))
                 {
-                    ref DetectedEnemyPosition detectedEnemyPosition = ref detectEnemyPool.Get(i);
-
                     detectedEnemyPosition.Value = false;
                     
                     if(hit.transform.TryGetComponent(out Entity entity) == false) continue;
@@ -48,7 +48,10 @@ namespace Client.Systems
 #if UNITY_EDITOR
                     Debug.DrawRay(pos, forward * attackRange);
 #endif
-                    
+                }
+                else
+                {
+                    detectedEnemyPosition.Value = false;
                 }
             }
         }

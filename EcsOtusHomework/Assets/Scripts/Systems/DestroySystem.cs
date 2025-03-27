@@ -16,7 +16,7 @@ namespace Client.Systems
         {
             foreach (var i in _filter.Value)
             {
-                //_entityManager.Value.Destroy(i);
+                _entityManager.Value.Destroy(i);
             }
         }
     }
