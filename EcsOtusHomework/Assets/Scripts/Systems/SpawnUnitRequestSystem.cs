@@ -19,6 +19,7 @@ namespace Client.Systems
         private readonly EcsPoolInject<Prefab> _prefabPool = EcsWorlds.EVENTS;
         private readonly EcsPoolInject<Team> _teamPool = EcsWorlds.EVENTS;
         private readonly EcsPoolInject<Target> _targetPool = EcsWorlds.EVENTS;
+        private readonly EcsPoolInject<Parent> _parentPool = EcsWorlds.EVENTS;
         
         public void Init(IEcsSystems systems)
         {
@@ -46,6 +47,7 @@ namespace Client.Systems
                 _prefabPool.Value.Add(spawnEvent) = new Prefab() { Value = prefab };
                 _teamPool.Value.Add(spawnEvent) = new Team() { Value = isRedTeam ? TeamType.Red : TeamType.Blue };
                 _targetPool.Value.Add(spawnEvent) = new Target { Value = enemyPoint };
+                _parentPool.Value.Add(spawnEvent) = new Parent { Value = point };
             }
         }
 

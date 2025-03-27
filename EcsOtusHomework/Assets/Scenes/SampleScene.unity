@@ -360,10 +360,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redTeamSpawnPoint: {fileID: 1416201428}
   blueTeamSpawnPoint: {fileID: 303483943}
+  bulletsRoot: {fileID: 1724335827}
   redSoldier: {fileID: -699026123723737972, guid: 86ac597c025f466429c5b6ea5ab6b911, type: 3}
   blueSoldier: {fileID: -4032499815905422956, guid: 4670ef0f18bc2844daa3c7d0a525a465, type: 3}
-  unitsPerTeam: 100
-  spawnRadius: 45
+  unitsPerTeam: 200
+  spawnRadius: 35
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +595,7 @@ Transform:
   m_Children:
   - {fileID: 1416201428}
   - {fileID: 303483943}
+  - {fileID: 1724335827}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
@@ -1102,6 +1104,37 @@ Transform:
   - {fileID: 755031471}
   - {fileID: 1176261692}
   m_Father: {fileID: 1194986985}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1724335826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1724335827}
+  m_Layer: 0
+  m_Name: bullets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1724335827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724335826}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 886872806}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1754437903
 GameObject:

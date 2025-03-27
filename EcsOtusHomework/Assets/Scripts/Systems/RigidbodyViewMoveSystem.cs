@@ -29,7 +29,7 @@ namespace Client.Systems
                 ref RigidbodyView rb = ref rbPool.Get(i);
                 
                 rb.Value.MovePosition(rb.Value.position + direction * speed * fixedDeltaTime);
-                rb.Value.MoveRotation(Quaternion.Slerp(rb.Value.rotation, rotation, 3f * speed * fixedDeltaTime));
+                rb.Value.MoveRotation(Quaternion.Slerp(rb.Value.rotation, rotation, 2f * speed * fixedDeltaTime));
             }
         }
     }

@@ -29,7 +29,7 @@ namespace Client.Views
             entity.AddData(new AttackRange
             {
                 Value = attackRange,
-                Bounds = new Vector3(attackRangeBounds.x, attackRangeBounds.y, attackRange)
+                Bounds = new Vector3(attackRangeBounds.x / 2f, attackRangeBounds.y / 2f, 0.1f)
             });
             
             entity.AddData(new FireDelay

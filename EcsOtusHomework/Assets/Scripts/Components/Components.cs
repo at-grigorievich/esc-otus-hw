@@ -71,6 +71,12 @@ namespace Client.Components
     }
 
     [Serializable]
+    public struct Parent
+    {
+        public Transform Value;
+    }
+    
+    [Serializable]
     public struct Target
     {
         public Transform Value;

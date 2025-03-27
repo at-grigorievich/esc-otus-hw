@@ -135,7 +135,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &-699026123723737972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,10 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd42247eb8147ab9d17c32a9dff5a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 3
   health: 100
   attackRange: 25
-  attackRangeBounds: {x: 10, y: 5}
+  attackRangeBounds: {x: 8, y: 2}
   rb: {fileID: 3473714573027867431}
   bulletSpawnPoint: {fileID: 2252355268760838796}
   bulletPrefab: {fileID: -6140886038896581239, guid: 5a3d42c7432f15849898474fde063f95, type: 3}

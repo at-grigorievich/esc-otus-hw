@@ -2,12 +2,14 @@
 using Client.Data;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
+using UnityEngine;
 
 namespace Client.Systems
 {
     public sealed class ShootBulletRequestSystem: IEcsRunSystem
     {
         private readonly EcsFilterInject<Inc<DetectedEnemyPosition, BulletWeapon, Team, FireDelay>> _filter;
+        private readonly EcsCustomInject<SceneData> _sceneData;
         
         private readonly EcsWorldInject _eventWorld = EcsWorlds.EVENTS;
         private readonly EcsPoolInject<SpawnRequest> _spawnPool = EcsWorlds.EVENTS;
@@ -15,6 +17,7 @@ namespace Client.Systems
         private readonly EcsPoolInject<Rotation> _rotationPool = EcsWorlds.EVENTS;
         private readonly EcsPoolInject<Prefab> _prefabPool = EcsWorlds.EVENTS;
         private readonly EcsPoolInject<Team> _teamPool = EcsWorlds.EVENTS;
+        private readonly EcsPoolInject<Parent> _parentPool = EcsWorlds.EVENTS;
         
         public void Run(IEcsSystems systems)
         {
@@ -40,6 +43,7 @@ namespace Client.Systems
                 _rotationPool.Value.Add(spawnBulletEvent) = new Rotation { Value = weapon.FirePoint.rotation };
                 _prefabPool.Value.Add(spawnBulletEvent) = new Prefab { Value = weapon.BulletPrefab };
                 _teamPool.Value.Add(spawnBulletEvent) = new Team { Value = teamType };
+                _parentPool.Value.Add(spawnBulletEvent) = new Parent { Value = _sceneData.Value.bulletsRoot };
                 
                 fireDelay.Value = 0f;
             }

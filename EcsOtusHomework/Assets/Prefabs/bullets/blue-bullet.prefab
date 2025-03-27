@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2101793820367634138}
-  forceAmplitude: 6
+  forceAmplitude: 8
   damage: 25
 --- !u!114 &1851103107770547221
 MonoBehaviour:

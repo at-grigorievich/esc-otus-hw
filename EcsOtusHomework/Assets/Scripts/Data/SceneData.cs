@@ -8,6 +8,8 @@ namespace Client.Data
         public Transform redTeamSpawnPoint;
         public Transform blueTeamSpawnPoint;
 
+        public Transform bulletsRoot;
+
         public Entity redSoldier;
         public Entity blueSoldier;
 

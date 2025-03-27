@@ -64,7 +64,9 @@ namespace Client {
             _systems
                 .Inject(_entityManager)
                 .Inject(sceneData);
-            _fixedSystems.Inject();
+            
+            _fixedSystems
+                .Inject(sceneData);
             
             _systems.Init ();
             _fixedSystems.Init();

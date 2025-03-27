@@ -12,6 +12,7 @@ namespace Client.Systems
         private readonly EcsWorldInject _eventWorld = EcsWorlds.EVENTS;
         private readonly EcsFilterInject<Inc<SpawnRequest, Position, Rotation, Prefab, Team>> _filter = EcsWorlds.EVENTS;
         private readonly EcsPoolInject<Target> _targetPool = EcsWorlds.EVENTS;
+        private readonly EcsPoolInject<Parent> _parentPool = EcsWorlds.EVENTS;
         
         private readonly EcsCustomInject<EntityManager> _entityManager;
         
@@ -23,8 +24,9 @@ namespace Client.Systems
                 Quaternion rotation = _filter.Pools.Inc3.Get(e).Value;
                 Entity prefab = _filter.Pools.Inc4.Get(e).Value;
                 TeamType team = _filter.Pools.Inc5.Get(e).Value;
+                Transform parent = _parentPool.Value.Has(e) ? _parentPool.Value.Get(e).Value : null;
                 
-                Entity instance = _entityManager.Value.Create(prefab, position, rotation);
+                Entity instance = _entityManager.Value.Create(prefab, position, rotation, parent);
                 
                 instance.SetData(new Team { Value = team });
 
